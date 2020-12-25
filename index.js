@@ -29,10 +29,10 @@ console.log(`Logged in as ${client.user.tag}!`)
 client.user.setStatus('online')
 client.user.setPresence({
 game: {
-        name: 'Justice pour les arméniens',
+        name: 'Justice pour les Arméniens !',
         type: "Playing",
         url: "https://discordapp.com/"}});
-client.user.setActivity('Justice pour les Arménien !');
+client.user.setActivity('Justice pour les Arméniens !');
 });
 
 client.on("message", async message => {
