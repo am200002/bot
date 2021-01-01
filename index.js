@@ -35,6 +35,19 @@ game: {
 client.user.setActivity('Justice pour les Arméniens !');
 });
 
+
+client.on('guildMemberAdd', member => {
+    let embed = new Discord.MessageEmbed()
+        .setFooter(`Nous sommes désormais ${member.guild.memberCount} membres 😁 `)
+        .setAuthor(`${member.user.username} \n Merci à toi de rejoindre le serveur`, member.user.displayAvatarURL())
+        .setDescription("Si tu rencontres un soucis, hésite pas à ping un membre de l'équipage pour avoir des renseignements")
+        .setColor("#35f092")
+        .setImage("https://avf.asso.fr/bourgoin-jallieu/wp-content/uploads/sites/353/2019/03/Bienvenue.jpg")
+
+        member.guild.channels.cache.get("794591160614125568").send(embed)
+})
+
+
 client.on("message", async message => {
         if (message.author.bot) {
                 return;
@@ -283,16 +296,6 @@ Chômeur`)
 message.channel.send(embed);}
 });
 
-client.on('guildMemberAdd', member => {
-    let embed = new Discord.MessageEmbed()
-        .setFooter(`Nous sommes désormais ${member.guild.memberCount} membres 😁 `)
-        .setAuthor(`${member.user.username} \n Merci à toi de rejoindre le serveur`, member.user.displayAvatarURL())
-        .setDescription("Si tu rencontres un soucis, hésite pas à ping un membre de l'équipage pour avoir des renseignements")
-        .setColor("#35f092")
-        .setImage("https://avf.asso.fr/bourgoin-jallieu/wp-content/uploads/sites/353/2019/03/Bienvenue.jpg")
-
-        member.guild.channels.cache.get("794591160614125568").send(embed)
-})
 
 client.on("message", async message => {
   if (message.author.bot) return;
@@ -307,16 +310,4 @@ client.on("message", async message => {
   client.commands.get(command).execute(client, message, args);
   })
 
-client.on('guildMemberAdd', member =>{
-    member.guild.channels.find("name", "musique").send(`Bienvenue ${member}`);
-})
-
-client.on('guildMemberRemove', member => {
-member.guild.channels.find("name", "general").send(`${member} vient de quitter la mafia`)
-})
-
-client.on('guildMemberAdd', member => {
-    var role = member.guild.roles.find('name', 'Membres');
-    member.addRole(role);
-})
 client.login(process.env.TOKEN)
