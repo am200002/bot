@@ -185,6 +185,16 @@ for(const file of commandFiles){
     console.log(client.commands);
 }
 
+Client.on('guildMemberAdd', member => {
+    let embed = new Discord.MessageEmbed()
+        .setFooter(`Nous sommes désormais ${member.guild.memberCount} membres 😁 `)
+        .setAuthor(`${member.user.username} \n Merci à toi de rejoindre le serveur`, member.user.displayAvatarURL())
+        .setDescription("Si tu rencontres un soucis, hésite pas à ping un membre de l'équipage pour avoir des renseignements")
+        .setColor("#35f092")
+        .setImage("https://avf.asso.fr/bourgoin-jallieu/wp-content/uploads/sites/353/2019/03/Bienvenue.jpg")
+
+        member.guild.channels.cache.get("794591160614125568").send(embed)
+})
 //                              COMMANDS
 client.on('message', message => {
 //if(message.content.startsWith(`${prefix}site`)) message.channel.send("Voici le site : http://artsakhisarmenia.cf !");
