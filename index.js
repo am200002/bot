@@ -265,7 +265,8 @@ Orthodoxe
 Catholique
 Protestant
 Copte
-Musulman`)
+Musulman
+Athée`)
 .setFooter('veuillez écrire les noms des rôles bien à la lettre sans fautes');;
 message.channel.send(embed);}
 
